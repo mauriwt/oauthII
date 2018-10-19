@@ -20,7 +20,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PreAuthorize("hasAuthority('poseidon.acequias.get')")
+    @PreAuthorize("hasAuthority('poseidon.acequias.jhfjhfks')")
     @RequestMapping(value="/user", method = RequestMethod.GET)
     public List<?> listUser(){
         return userService.findAll();

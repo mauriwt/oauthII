@@ -1,6 +1,7 @@
 package oauth.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.jayway.jsonpath.Option;
 
 import oauth.model.OauthPermiso;
 import oauth.model.OauthUser;
@@ -56,8 +59,8 @@ public class OauthUserRESTController {
   
   @PreAuthorize("hasAuthority('yauth.user.get')")
   @RequestMapping(value="{id}", method = RequestMethod.GET)
-  public OauthUser getOneUsario(@PathVariable("id") Integer id) {
-    return this.userRepo.findOneBasic(id);
+  public Optional<?> getOneUsario(@PathVariable("id") Integer id) {
+    return this.userRepo.findById(id);
   }
   
   @PreAuthorize("hasAuthority('yauth.user.insert')")

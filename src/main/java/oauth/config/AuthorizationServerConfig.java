@@ -20,9 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -73,15 +75,18 @@ import oauth.repo.OauthPermisoRepo;
 
 @Configuration
 @EnableAuthorizationServer
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     
   @Autowired
   PasswordEncoder encoder;
 
   @Autowired
+  @Qualifier("authenticationManagerBean")
   private AuthenticationManager authenticationManager;
   
   @Autowired
+  @Qualifier("userDetailsService")
   private UserDetailsService userDetailsService;
   
   @Autowired

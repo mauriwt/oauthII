@@ -38,14 +38,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import oauth.config.ResourceServerConfig.CustomAuthenticationFailureHandler;
-import oauth.repo.OauthUserRepo;
 import oauth.utilities.LoginAttemptService;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-  private Logger logger = LogManager.getLogger(SecurityConfig.class);
 
   @Autowired
   private DataSource dataSource;
@@ -143,9 +141,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   }
 
   private class CustomAuthenticationProvider implements AuthenticationProvider {
-
-    @Autowired
-    private OauthUserRepo userRepo;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
