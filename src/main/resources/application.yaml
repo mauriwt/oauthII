@@ -1,0 +1,31 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    database-platform: org.hibernate.dialect.PostgreSQL9Dialect
+    show-sql: false
+    properties:
+      hibernate.temp.use_jdbc_metadata_defaults: false
+  datasource:
+    tomcat:
+      max-active: 10
+      initial-size: 5
+    platform: postgres
+    driverClassName: org.postgresql.Driver
+  yauth:
+    login:
+      attempts: 20
+  main:
+    allow-bean-definition-overriding: true
+  profiles:
+    active:
+      - dev
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/oauth
+    username: postgres
+    password: mao.
+---
+server:
+  port: 3636

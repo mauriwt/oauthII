@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import oauth.model.OauthClientDetail;
 import oauth.model.OauthClientResource;
-import oauth.repo.OauthClientDetailRepo;
 import oauth.repo.OauthClientResourceRepo;
 import oauth.utilities.ErrorService;
 import oauth.utilities.HttpResponseService;
