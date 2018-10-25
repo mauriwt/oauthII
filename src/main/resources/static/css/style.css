@@ -1,0 +1,14 @@
+.marca{
+    width: 25px;
+}
+
+#errors{
+    margin: 5px 20px;
+    list-style: none;
+    color: white;
+    text-align: center;
+}
+
+#errors li>span	{
+    padding: 2px 5px;
+}
