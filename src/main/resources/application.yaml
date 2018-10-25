@@ -16,6 +16,10 @@ spring:
       attempts: 20
   main:
     allow-bean-definition-overriding: true
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
   profiles:
     active:
       - dev
